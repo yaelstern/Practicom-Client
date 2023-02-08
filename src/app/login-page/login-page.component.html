@@ -1,0 +1,106 @@
+<div id="divForm">
+    <form (ngSubmit)="addUser()" #form="ngForm" id="myform">
+        <div id="divAdd">
+            <div class="divInput">
+                <mat-form-field appearance="fill">
+                    <mat-label>שם פרטי</mat-label>
+                    <input matInput type="text" [(ngModel)]="currentUser.FirstName" name="n" required pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+">
+                    <mat-icon matSuffix>face</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="divInput">
+                <mat-form-field appearance="fill">
+                    <mat-label>שם משפחה</mat-label>
+                    <input matInput [(ngModel)]="currentUser.LastName" name="t" required pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+"/>
+                    <mat-icon matSuffix>face</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="divInput">
+                <mat-form-field appearance="fill">
+                    <mat-label>קופה</mat-label>
+                    <mat-select [(ngModel)]="currentUser.HMO" name="s" required>
+                        <mat-option value="3">מאוחדת</mat-option>
+                        <mat-option value="1">מכבי</mat-option>
+                        <mat-option value="2">לאומית</mat-option>
+                        <mat-option value="4">כללית</mat-option>
+                        <span class="color-span" [ngStyle]="{ 'background-color': 'red' }"></span>
+                    </mat-select>
+                    <mat-icon matSuffix>headset_mic</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="divInput" id="radioButtons">
+                <div id="radioDiv">
+                    <div>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                            name="h" [(ngModel)]="gender">
+                            <mat-radio-button class="example-radio-button" *ngFor="let min of mins" [value]="min"
+                                name="f">
+                                {{min}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div>
+                        <mat-icon matSuffix id="iconGender">perm_identity</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="divInput">
+                <mat-form-field appearance="fill">
+                    <mat-label>תעודת זהות</mat-label>
+                    <input matInput type="text" [(ngModel)]="currentUser.IdentityNumber" name="i" required min="9" max="9"/>
+                    <mat-icon matSuffix>recent_actors</mat-icon>
+                    <mat-hint *ngIf="!checkIdFatherValidation()&&currentUser.IdentityNumber">מספר זהות שגוי</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="divInput">
+                <mat-form-field appearance="fill">
+                    <mat-label>תאריך לידה</mat-label>
+                    <input matInput [(ngModel)]="currentUser.BornDate" name="l" type="date" required min="1900-01-01" max="2023-02-07"
+                        class="dateInput" />
+                    <mat-icon matSuffix>event</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="divInput" *ngIf="isChildren">
+                <mat-form-field appearance="fill">
+                    <mat-label>שם מלא</mat-label>
+                    <input matInput type="text" [(ngModel)]="currentChild.FullName" name="d" pattern="[\u0590-\u05FF\uFB1D-\uFB4F]+"/>
+                    <mat-icon matSuffix>face</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="divInput" *ngIf="isChildren">
+                <mat-form-field appearance="fill">
+                    <mat-label>תעודת זהות</mat-label>
+                    <input matInput type="text" [(ngModel)]="currentChild.IdentityNumber" name="c" min="9" max="9"/>
+                    <mat-icon matSuffix>recent_actors</mat-icon>
+                    <mat-hint *ngIf="checkIdChildValidation()&&currentChild.IdentityNumber">מספר זהות שגוי</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="divInput" *ngIf="isChildren">
+                <mat-form-field appearance="fill">
+                    <mat-label>תאריך לידה</mat-label>
+                    <input matInput type="date" [(ngModel)]="currentChild.BornDate" name="p" min="1920-01-01" max="2023-02-07" />
+                    <mat-icon matSuffix>event</mat-icon>
+
+                </mat-form-field>
+            </div>
+            <div class="example-button-container" *ngIf="isChildren">
+                <input type="button" color="warn" aria-label="Example icon button with a plus one icon" value="1+"
+                    class="inputAdd" name="war" (click)="addChild()" />
+            </div>
+            <div id="buttons">
+                <div class="example-button-container">
+                    <input type="button" color="warn" aria-label="Example icon button with a plus one icon"
+                        *ngIf="!isChildren" (click)="openChildren()" value="הוסף ילדים" class="inputAdd" />
+                </div>
+                <div class="example-button-container">
+                    <input type="submit" color="warn" aria-label="Example icon button with a plus one icon" value="שלח"
+                        class="inputAdd" [disabled]="!form.valid" />
+                </div>
+                <div class="example-button-container">
+                    <input type="button" color="warn" aria-label="Example icon button with a plus one icon"
+                        (click)="form.reset()" value="נקה" class="inputAdd" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

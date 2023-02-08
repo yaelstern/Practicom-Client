@@ -1,0 +1,35 @@
+#all {
+    direction: rtl;
+    font-size: x-large;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.butNav {
+    margin: 0.3%;
+    font-family: Azula;
+    font-size: x-large;
+}
+#logo{
+    height: 5vh;
+    margin-left: 2vw;
+    display: block;
+    margin-top: 0vh;
+}
+h1{
+    font-family: Freestyle Script;
+    position: absolute;
+    top: 4vh;
+    right: 1.6vw;
+    color:white
+}
+.mat-toolbar-row, .mat-toolbar-single-row{
+    background-color: #d5d3d3;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#matTool{
+    width: 100%;
+    top: 0;
+    left: 0;
+}

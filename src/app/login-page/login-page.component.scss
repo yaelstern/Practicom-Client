@@ -1,0 +1,103 @@
+#divAdd {
+    margin: auto;
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: smaller;
+    flex-wrap: wrap;
+    padding: 1%;
+}
+#divForm{
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-radius: 2vw;
+    width: 65vw;
+    margin: auto;
+    margin-top: 2vh;
+    padding: 3%;
+}
+.mat-form-field {
+    width: 100%;
+
+}
+.mat-form-field-flex {
+    display: inline-flex;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: 100%;
+    height: 9.5vh;
+}
+
+.singleAdd {
+    width: 20%;
+}
+
+#divFill {
+    position: absolute;
+    display: flex;
+    gap: 5%;
+    justify-content: space-between;
+    margin-right: 20vw;
+}
+
+.divInput {
+    width: 30%;
+    padding: 1%;
+}
+.example-radio-group{
+    display: flex;
+    justify-content: space-between;
+}
+#radioButtons {
+    background-color: rgba(0, 0, 0, .04);
+    height: 6vh;
+    border-top-right-radius: 8%;
+    border-top-left-radius: 8%;
+    margin-top:1%
+}
+#radioButtons:hover {
+    border-bottom: solid;
+    border-bottom-color: black;
+}
+#radioDiv {
+    margin: 5%;
+    padding: 2%;
+    margin-right: 19%;
+    display: flex;
+    justify-content: space-between;
+}
+.inputAdd {
+    border-radius: 50%;
+    background-color: #fb2919;
+    border-color: #fb2919;
+    color: white;
+    width: 5vw;
+    height: 5vw;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-style: none;
+    margin: 1vw;
+    cursor: pointer;
+}
+.inputAdd:active{
+    color:#fb2919 ;
+}
+#buttons {
+    margin-right: 40vw;
+    display: flex;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+#iconGender{
+    margin-right: 4%;
+}
